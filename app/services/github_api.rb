@@ -15,7 +15,7 @@ class GithubApi
       Rails.logger.info("===================================")
         query = { q: @query, page: @page, per_page: @per_page, order: "desc" }
         headers = { 'Content-Type' => 'application/json', 'Authorization' => Rails.application.credentials.github[:access_token]}
-        @response ||= self.class.get(end_point, query: query, headers: { 'Content-Type' => 'application/json', 'Authorization' => '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'})
+        @response ||= self.class.get(end_point, query: query, headers: headers)
 
         raise Retry if @response.code == 503 and options[:raise_errors]
 
