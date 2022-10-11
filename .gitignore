@@ -12,11 +12,8 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
-# Ignore pidfiles, but keep the directory.
-/tmp/pids/*
-!/tmp/pids/
-!/tmp/pids/.keep
+.DS_Store
+coverage
 
 # Ignore uploaded files in development.
 /storage/*
@@ -34,3 +31,11 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Personal to-do list
+/todo.md
+
+# Redis dump file
+/dump.rdb
+
+/.idea
