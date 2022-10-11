@@ -1,19 +1,46 @@
-# README
+## Technologies:
 
-Follow this instruction to setup the project in your local
+* Ruby 2.6.3
+* Vue
+* Tailwind CSS
 
-- git clone
 
-- cd github_repo_search
+### Setup
 
-- bundle install
+Navigate to directory where the code script is located
 
-- yarn install
+```sh
+$ cd ~/github_repo_search
+```
+Install the dependencies and devDependencies.
 
-- rails db:create
+```sh
+$ rvm use 2.6.3
+````
+```
+$ bundle install
+```
 
-- rails db:migrate
+```
+$ yarn install
+```
 
-- foreman start
+```
+$ rails db:setup
+```
 
-If the webpacker error shown, Please do refresh the page.
+
+### Steps to run Application
+
+```sh
+$ foreman start
+```
+
+<!-- 
+### Code:
+
+
+### Scope for improvements: -->
+
+
+
