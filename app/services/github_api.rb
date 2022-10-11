@@ -28,7 +28,7 @@ class GithubApi
       raise
     rescue Exception => e
       Rails.logger.info("====================================================================")
-      Rails.logger.debug("API Calling Error: #{end_point} ==== #{@options}")
+      Rails.logger.debug("API Calling Error: #{end_point} ==== #{options}")
       {}
     end
   end
