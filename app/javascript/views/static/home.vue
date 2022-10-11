@@ -30,8 +30,8 @@
         </div>
       </div>
 
-      <nav aria-label="Page navigation example">
-        <ul class="inline-flex -space-x-px">
+      <nav aria-label="Page navigation example" v-if="repositories.length > 0">
+        <ul class="inline-flex -space-x-px p-8">
           <li>
             <a v-if="current != 1" @click="current--" class="py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
           </li>
