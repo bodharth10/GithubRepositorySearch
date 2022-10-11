@@ -36,7 +36,7 @@
             <a v-if="current != 1" @click="current--" class="py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
           </li>
           <li>
-            <a v-for="current in paginate_total" @click.prevent="updateCurrent(current + 1)" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer">{{ current + 1 }}</a>
+            <a v-for="current in pages" @click.prevent="updateCurrent(current + 1)" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer">{{ current + 1 }}</a>
           </li>
           <li>
             <a  @click="current++" v-if="current < paginate_total" class="py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
@@ -63,7 +63,17 @@ export default {
       total_count: 0,
       per_page: 25,
       sort_by: "desc",
-      loading: false
+      loading: false,
+      numShown: 20,
+    }
+  },
+  computed: {
+    pages() {
+      const numShown = Math.min(this.numShown, this.paginate_total);
+      let first = this.current - Math.floor(numShown / 2);
+      first = Math.max(first, 1);
+      first = Math.min(first, this.paginate_total - numShown + 1);
+      return [...Array(numShown)].map((k,i) => i + first);
     }
   },
   methods:{
